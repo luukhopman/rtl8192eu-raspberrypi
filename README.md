@@ -63,10 +63,11 @@ switches to `rtl8xxxu`. Install the matching headers, run `build.sh` again, then
 
 ## Notes for a Pi 2 with more USB devices
 
-The Pi 2 limits current on its USB ports. With a webcam or other power-hungry
-device next to the stick, add `max_usb_current=1` to
-`/boot/firmware/config.txt` and use a 2.5 A supply; otherwise a device starting
-up can reset the whole USB bus, Wi-Fi stick included.
+A webcam or other power-hungry device next to the stick can reset the whole USB
+bus when it starts (`usb usb1-port1: disabled by hub (EMI?)`), taking the Wi-Fi
+stick down for a few seconds. Use a solid 2.5 A supply, or put the other device
+on a powered USB hub. (`max_usb_current=1` no longer has any effect: current
+firmware already allows the maximum.)
 
 ## Licence
 
